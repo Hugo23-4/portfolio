@@ -1,23 +1,405 @@
-body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+/* Primero importar las fuentes desde Google Fonts */
+/* @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;700&display=swap'); */
+
+/* Variables */
+:root {
+    /* 1. Colores */
+    --color-principal: #1A1A1A; /* Fondo oscuro principal */
+    --color-secundario: #B3B3B3; /* Gris para descripciones */
+    --color-acento: #6C63FF; /* Botones, enlaces, brillos */
+    --color-blanco: #F5F5F5; /* Texto principal */
+    --color-negro: #0D0D0D; /* Fondo de tarjetas, header y footer */
+
+    /* 2. Tipografía */
+    --font-heading: 'Montserrat', sans-serif;
+    --font-body: 'Roboto', sans-serif;
+
+    /* 3. Tamaños de las fuentes */
+    --fs-h1: 48px; 
+    --fs-h2: 32px;
+    --fs-h3: 24px;
+    --fs-p: 16px; /* P */
+    --fs-small: 12px; /* Small */
+    --fs-normal: 1rem; /* 16px */
+
+    /* 4. Márgenes y paddings */
+    --mb-0-5: 0.5rem; /* 8px */
+    --mb-1: 1rem; /* 16px */
+    --mb-1-5: 1.5rem; /* 24px */
+    --mb-2: 2rem; /* 32px */
+
+    /* 5. z - index  */
+    --z-fixed: 100;
+    --z-modal: 200;
+}
+
+/* Etilos base */
+* {
     margin: 0;
-    background-color: #f0f0f0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; /* Para que el scroll sea suave */
+}
+
+body {
+    background-color: var(--color-principal);
+    color: var(--color-blanco);
+    font-family: var(--font-body);
+    font-size: var(--fs-normal);
+    line-height: 1.6;
+}
+
+
+/* Estilos de Encabezados */
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    color: var(--color-blanco);
+    font-weight: 700;
+}
+
+h1 { font-size: var(--fs-h1); }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); }
+
+
+/* Estilos de elementos base */
+ul {
+    list-style: none;
 }
 
 a {
-    color: #0066cc;
     text-decoration: none;
-    padding: 10px 20px;
-    border: 2px solid #0066cc;
-    border-radius: 5px;
+    color: inherit;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Clase Utilidad */
+.section {
+    padding: 4rem 0 2rem;
+}
+
+.section__title {
+    font-size: var(--fs-h1);
+    text-align: center;
+    margin-bottom: var(--mb-2);
+}
+
+.container {
+    max-width: 1024px;
+    margin-left: var(--mb-1-5);
+    margin-right: var(--mb-1-5);
+}
+
+.grid {
+    display: grid;
+    gap: 1.5rem; /* Espacio entre elementos */
+}
+
+/* Header y navegación */
+.header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: var(--z-fixed);
+    background-color: var(--color-negro);
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between; /* Logo a la izquierda, icono a la derecha */
+    align-items: center;
+    height: 4.5rem;
+}
+
+.nav__logo {
+    font-family: var(--font-heading);
+    font-size: var(--fs-h3);
+    font-weight: 700;
+    color: var(--color-blanco);
+}
+
+.nav__logo span {
+    color: var(--color-acento);
+}
+
+/* Iconos de Toggle y Close */
+.nav__toggle,
+.nav__close {
+    font-size: 1.5rem;
+    color: var(--color-blanco);
+    cursor: pointer;
+    display: block;
+}
+
+.nav__close {
+    font-size: 2rem;
+}
+
+/* Estilos del Menú Móvil */
+.nav__menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100%;
+    background-color: var(--color-negro);
+    padding: 6rem 2rem 0;
+    z-index: var(--z-modal);
+    transition: right 0.4s ease-in-out;
+    
+    border-left: 2px solid var(--color-acento); 
+}
+
+.nav__list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.nav__link {
+    font-family: var(--font-heading);
+    font-size: var(--fs-h2);
+    color: var(--color-blanco);
+    font-weight: 700;
+}
+
+.nav__close {
+    position: absolute;
+    top: 1.5rem;
+    right: 2rem;
+}
+
+.show-menu {
+    right: 0;
+}
+
+/* Botones */
+.button {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: var(--fs-normal);
     transition: all 0.3s ease;
 }
 
-a:hover {
-    background-color: #0066cc;
-    color: white;
+/* Estilo Principal */
+.button {
+    background-color: var(--color-acento);
+    color: var(--color-blanco);
+}
+
+.button:hover {
+    filter: brightness(1.2); 
+    box-shadow: 0 4px 15px rgba(108, 99, 255, 0.4);
+}
+
+/* Estilo Icono */
+.button--icon {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border-radius: 50%;
+    background-color: var(--color-principal);
+    color: var(--color-blanco);
+    font-size: 1.5rem; /* Tamaño del icono GitHub */
+
+    /* Centrar icono */
+    display: grid;
+    place-items: center;
+}
+
+.button--icon:hover {
+    color: var(--color-blanco);
+    background-color: var(--color-principal);
+    filter: brightness(1);
+    box-shadow: 0 0 12px 2px var(--color-acento);
+}
+
+
+/* Trajetas del proyecto */
+.projects__container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.project__card {
+    background-color: var(--color-negro);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.card__image-area {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    background-color: var(--color-principal);
+    
+    display: grid;
+    place-items: center;
+}
+
+.card__placeholder-icon {
+    font-size: 4rem;
+    color: var(--color-secundario);
+}
+
+.card__content {
+    padding: 1rem;
+}
+
+.card__title {
+    font-size: var(--fs-h3);
+    margin-bottom: var(--mb-0-5);
+}
+
+.card__description {
+    font-size: var(--fs-small);
+    color: var(--color-secundario);
+    font-family: var(--font-body);
+}
+
+.card__buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: var(--mb-1);
+}
+
+/* Efecto Hover de la Tarjeta */
+.project__card:hover {
+    transform: translateY(-5px);
+    border-color: var(--color-acento);
+    box-shadow: 0 0 20px 4px rgba(108, 99, 255, 0.3);
+}
+
+/* Footer */
+.footer {
+    background-color: var(--color-negro);
+    padding: 2rem 0;
+    margin-top: 4rem;
+}
+
+.footer__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 0.5rem;
+}
+
+.footer__copy,
+.footer__dev {
+    font-size: var(--fs-small);
+    color: var(--color-secundario);
+}
+
+
+/* Media */
+/* 1. Para tablets */
+@media screen and (min-width: 576px) {
+    .projects__container {
+        grid-template-columns: repeat(2, 300px);
+        justify-content: center;
+    }
+}
+
+/* 2. Para Ordenadores (992px, por ejemplo) */
+@media screen and (min-width: 992px) {
+
+    /* Ajustamos el layout base */
+    .container {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .section {
+        padding: 6rem 0 2rem;
+    }
+
+    .section__title {
+        margin-bottom: 3rem;
+    }
+
+    /* Header */
+    .header {
+        height: 5rem;
+    }
+
+    .nav {
+        height: 100%;
+    }
+
+    /* Ocultamos los iconos de móvil */
+    .nav__toggle,
+    .nav__close {
+        display: none;
+    }
+
+    /* Ajustamos el menú */
+    .nav__menu {
+        position: static;
+        right: auto;
+        width: auto;
+        height: auto;
+        background: none;
+        padding: 0;
+        border-left: none;
+        transition: none;
+    }
+
+    .nav__list {
+        flex-direction: row;
+        gap: 2.5rem;
+    }
+
+    .nav__link {
+        font-size: var(--fs-normal);
+        color: var(--color-blanco);
+        font-family: var(--font-body);
+        font-weight: 700;
+    }
+
+    /* Proyectos Ordenador */
+    .projects__container {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.5rem; 
+    }
+
+    /* Ajustamos texto de tarjetas para que no se vea tan grande */
+    .card__title {
+        font-size: 1.25rem; 
+    }
+
+    /* Footer Ordenador */
+    .footer__container {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+
+/* Ajustes en móviles pequeños */
+@media screen and (max-width: 500px) {
+    h1, .section__title {
+        font-size: var(--fs-h2);
+    }
 }
