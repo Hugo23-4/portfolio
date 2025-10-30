@@ -89,12 +89,12 @@ img {
 
 /* Clase Utilidad */
 .section {
-    padding: 6.5rem 0 2rem; /* Más espacio arriba por el header fijo */
+    padding: 6.5rem 0 2rem;
 }
 
 .section__title {
     font-size: var(--fs-h1);
-    text-align: center; /* ¡CLAVE! Para centrar tu H1 */
+    text-align: center;
     margin-bottom: var(--mb-2);
 }
 
@@ -162,7 +162,7 @@ img {
     z-index: var(--z-modal);
     transition: right 0.4s ease-in-out;
     
-    border-left: 2px solid var(--color-acento); /* ¡CLAVE! El borde morado del diseño */
+    border-left: 2px solid var(--color-acento);
 }
 
 .nav__list {
@@ -173,7 +173,7 @@ img {
 
 .nav__link {
     font-family: var(--font-heading);
-    font-size: var(--fs-h3); /* 24px, más pequeño que H2 */
+    font-size: var(--fs-h3); /* 24px */
     color: var(--color-blanco);
     font-weight: 700;
 }
@@ -191,7 +191,7 @@ img {
 /* Botones */
 .button {
     display: inline-block;
-    padding: 0.25rem 0.6rem; /* El padding más pequeño que pediste */
+    padding: 0.25rem 0.6rem;
     border-radius: 8px;
     font-family: var(--font-body);
     font-weight: 700;
@@ -206,20 +206,20 @@ img {
 }
 
 .button:hover,
-.button:active { /* AÑADIDO :active PARA ANIMACIÓN EN MÓVIL */
+.button:active {
     filter: brightness(1.2); 
     box-shadow: 0 4px 15px rgba(108, 99, 255, 0.4);
 }
 
 /* Estilo Icono */
 .button--icon {
-    width: 38px; /* El tamaño más pequeño que pediste */
-    height: 38px; /* El tamaño más pequeño que pediste */
+    width: 38px;
+    height: 38px;
     padding: 0;
     border-radius: 50%;
     background-color: var(--color-principal);
     color: var(--color-blanco);
-    font-size: 1.3rem; /* El icono más pequeño que pediste */
+    font-size: 1.3rem;
 
     /* Centrar icono */
     display: grid;
@@ -227,7 +227,7 @@ img {
 }
 
 .button--icon:hover,
-.button--icon:active { /* AÑADIDO :active PARA ANIMACIÓN EN MÓVIL */
+.button--icon:active {
     color: var(--color-blanco);
     background-color: var(--color-principal);
     filter: brightness(1);
@@ -265,7 +265,7 @@ img {
 
 .card__content {
     padding: 1rem;
-    text-align: center; /* ¡CLAVE! Para centrar el H3 y la descripción */
+    text-align: center;
 }
 
 .card__title {
@@ -281,15 +281,15 @@ img {
 
 .card__buttons {
     display: flex;
-    justify-content: center; /* ¡CLAVE! Para centrar tus botones */
+    justify-content: center;
     align-items: center;
-    gap: 1rem; /* ¡CLAVE! Espacio entre los botones */
+    gap: 1rem;
     margin-top: var(--mb-1);
 }
 
 /* Efecto Hover de la Tarjeta */
 .project__card:hover,
-.project__card:active { /* AÑADIDO :active PARA ANIMACIÓN EN MÓVIL */
+.project__card:active {
     transform: translateY(-5px);
     border-color: var(--color-acento);
     box-shadow: 0 0 20px 4px rgba(108, 99, 255, 0.3);
@@ -337,7 +337,7 @@ img {
     }
 
     .section {
-        padding: 6rem 0 2rem; /* Restablece el padding para PC */
+        padding: 6rem 0 2rem; /* Restablece el padding para ordenador */
     }
 
     .section__title {
@@ -377,7 +377,7 @@ img {
     }
 
     .nav__link {
-        font-size: var(--fs-normal); /* Restablece tamaño de fuente para PC */
+        font-size: var(--fs-normal); /* Restablece tamaño de fuente para ordenador */
         color: var(--color-blanco);
         font-family: var(--font-body);
         font-weight: 700;
