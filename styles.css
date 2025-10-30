@@ -89,12 +89,12 @@ img {
 
 /* Clase Utilidad */
 .section {
-    padding: 4rem 0 2rem;
+    padding: 6.5rem 0 2rem; /* Más espacio arriba por el header fijo */
 }
 
 .section__title {
     font-size: var(--fs-h1);
-    text-align: center;
+    text-align: center; /* ¡CLAVE! Para centrar tu H1 */
     margin-bottom: var(--mb-2);
 }
 
@@ -155,14 +155,14 @@ img {
     position: fixed;
     top: 0;
     right: -100%;
-    width: 70%;
+    width: 50%; /* Acho desplegable */
     height: 100%;
     background-color: var(--color-negro);
     padding: 6rem 2rem 0;
     z-index: var(--z-modal);
     transition: right 0.4s ease-in-out;
     
-    border-left: 2px solid var(--color-acento); 
+    border-left: 2px solid var(--color-acento); /* ¡CLAVE! El borde morado del diseño */
 }
 
 .nav__list {
@@ -173,7 +173,7 @@ img {
 
 .nav__link {
     font-family: var(--font-heading);
-    font-size: var(--fs-h2);
+    font-size: var(--fs-h3); /* 24px, más pequeño que H2 */
     color: var(--color-blanco);
     font-weight: 700;
 }
@@ -191,11 +191,11 @@ img {
 /* Botones */
 .button {
     display: inline-block;
-    padding: 0.75rem 1.5rem;
+    padding: 0.25rem 0.6rem; /* El padding más pequeño que pediste */
     border-radius: 8px;
     font-family: var(--font-body);
     font-weight: 700;
-    font-size: var(--fs-normal);
+    font-size: var(--fs-p); /* 16px */
     transition: all 0.3s ease;
 }
 
@@ -205,27 +205,29 @@ img {
     color: var(--color-blanco);
 }
 
-.button:hover {
+.button:hover,
+.button:active { /* AÑADIDO :active PARA ANIMACIÓN EN MÓVIL */
     filter: brightness(1.2); 
     box-shadow: 0 4px 15px rgba(108, 99, 255, 0.4);
 }
 
 /* Estilo Icono */
 .button--icon {
-    width: 40px;
-    height: 40px;
+    width: 38px; /* El tamaño más pequeño que pediste */
+    height: 38px; /* El tamaño más pequeño que pediste */
     padding: 0;
     border-radius: 50%;
     background-color: var(--color-principal);
     color: var(--color-blanco);
-    font-size: 1.5rem; /* Tamaño del icono GitHub */
+    font-size: 1.3rem; /* El icono más pequeño que pediste */
 
     /* Centrar icono */
     display: grid;
     place-items: center;
 }
 
-.button--icon:hover {
+.button--icon:hover,
+.button--icon:active { /* AÑADIDO :active PARA ANIMACIÓN EN MÓVIL */
     color: var(--color-blanco);
     background-color: var(--color-principal);
     filter: brightness(1);
@@ -278,13 +280,15 @@ img {
 
 .card__buttons {
     display: flex;
-    justify-content: space-between;
+    justify-content: center; /* ¡CLAVE! Para centrar tus botones */
     align-items: center;
+    gap: 1rem; /* ¡CLAVE! Espacio entre los botones */
     margin-top: var(--mb-1);
 }
 
 /* Efecto Hover de la Tarjeta */
-.project__card:hover {
+.project__card:hover,
+.project__card:active { /* AÑADIDO :active PARA ANIMACIÓN EN MÓVIL */
     transform: translateY(-5px);
     border-color: var(--color-acento);
     box-shadow: 0 0 20px 4px rgba(108, 99, 255, 0.3);
@@ -332,7 +336,7 @@ img {
     }
 
     .section {
-        padding: 6rem 0 2rem;
+        padding: 6rem 0 2rem; /* Restablece el padding para PC */
     }
 
     .section__title {
@@ -372,7 +376,7 @@ img {
     }
 
     .nav__link {
-        font-size: var(--fs-normal);
+        font-size: var(--fs-normal); /* Restablece tamaño de fuente para PC */
         color: var(--color-blanco);
         font-family: var(--font-body);
         font-weight: 700;
