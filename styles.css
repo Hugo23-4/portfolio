@@ -258,6 +258,13 @@ img {
     place-items: center;
 }
 
+.card__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
 .card__placeholder-icon {
     font-size: 4rem;
     color: var(--color-secundario);
@@ -293,6 +300,11 @@ img {
     transform: translateY(-5px);
     border-color: var(--color-acento);
     box-shadow: 0 0 20px 4px rgba(108, 99, 255, 0.3);
+}
+
+/* Animación imagen */
+.project__card:hover .card__image {
+    transform: scale(1.05);
 }
 
 /* Footer */
